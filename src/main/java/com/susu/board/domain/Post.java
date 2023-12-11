@@ -6,6 +6,9 @@ import lombok.*;
 @Entity
 @Table(name = "post")
 @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@Builder
 public class Post {
 
     @Id
@@ -24,5 +27,10 @@ public class Post {
     private Member author;
 
     private int hit;
+
+    public void update(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
 
 }
